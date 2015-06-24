@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+
+{% block heading %}
+    <header>
+      <h1>{{title}}</h1>
+    </header>
+{% endblock %}
+{% block content %}
+    <form id = "addPage" action="/add/submit" method = "POST">
+      <label for="pageTitleField">Page Title</label>
+      <br>
+      <input name="pageTitle" type="text" id = "pageTitleField"/>
+      <br>
+      <label for="contentField">Page Content</label>
+      <br>
+      <textarea form = "addPage" name = "content" type="text" id="contentField" style = "width:600px; height:400px"></textarea>
+      <br>
+      <input type="submit" value="Submit" class="btn btn-info"/>
+    </form>
+{% endblock %}
+{% block footing %}
+    <footer>
+      <label>WikiStack, Fullstack Academy</label>
+    </footer>
+{% endblock %}
+
