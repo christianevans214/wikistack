@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+
+{% block heading %}
+    <header>
+      <h1>{{page.title|default("Page '" + page.url_name + "'")}}</h1>
+      <p> {{tags}} </p>
+    </header>
+{% endblock %}
+{% block content %}
+  <p> {{page.content | marked}} </p>
+{% endblock %}
+{% block footing %}
+    <footer>
+      <label>WikiStack, Fullstack Academy</label>
+    </footer>
+{% endblock %}
