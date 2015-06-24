@@ -1,7 +1,21 @@
 {% extends "layout.html" %}
 
 
-{% block content %}
-    <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+{% block heading %}
+    <header>
+      <h1>{{title}}</h1>
+    </header>
 {% endblock %}
+{% block content %}
+    <ul>
+      {% for wiki in stack %}
+        <li class = "wikiLink"><a href="{{wiki.url_name}}">{{wiki.title}}</a></li>
+      {% endfor %}
+    </ul>
+{% endblock %}
+{% block footing %}
+    <footer>
+      <label>WikiStack, Fullstack Academy</label>
+    </footer>
+{% endblock %}
+
