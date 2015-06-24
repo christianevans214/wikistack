@@ -6,13 +6,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var addRoutes = require("./routes/add");
 
 var app = express();
 
-// view engine setup
+// view engine setup, swig configuring
+require('./filters.js')(swig);
 app.engine('html', swig.renderFile);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');

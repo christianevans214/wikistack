@@ -9,7 +9,7 @@
 {% block content %}
     <ul>
       {% for wiki in stack %}
-        <li class = "wikiLink"><a href="{{wiki.url_name}}">{{wiki.title}}</a></li>
+        <li class = "wikiLink">{{wiki|page_link}}</li>
       {% endfor %}
     </ul>
 {% endblock %}

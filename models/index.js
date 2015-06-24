@@ -20,7 +20,11 @@ var pageSchema = new mongoose.Schema({
   owner_id: String,
   content:  String,
   date:     { type: Date, default: Date.now },
-  status:   Number
+  status:   Number,
+  tags: [String]
+});
+pageSchema.virtual('full_route').get(function(){
+  return "/wiki/" + this.url_name;
 });
 
 // User:
@@ -37,9 +41,7 @@ var Page = mongoose.model('Page', pageSchema);
 var User = mongoose.model('User', userSchema);
 
 //make virtual field for the full_route
-pageSchema.virtual('full_route').get(function(){
-	return "/wiki/" + this.url_name;
-});
+
 
 module.exports = {
   Page: Page,
