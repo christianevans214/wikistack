@@ -4,7 +4,9 @@
 {% block heading %}
     <header>
       <h1>{{page.title|default("Page '" + page.url_name + "'")}}</h1>
-      <p> {{tags}} </p>
+      {% for tag in tags %}
+        <a href = "/search/{{tag}}"> {{tag}} </a>
+        {% endfor %}
     </header>
 {% endblock %}
 {% block content %}
@@ -12,6 +14,8 @@
 {% endblock %}
 {% block footing %}
     <footer>
+      <a href = "/wiki/{{page.url_name}}/similarPages"><button type = "button" class = "btn btn-default">Find Similar</button>
+      </a>
       <label>WikiStack, Fullstack Academy</label>
     </footer>
 {% endblock %}

@@ -15,8 +15,8 @@ router.post("/submit", function(req,res,next){
   }else{
     urlName = Math.random().toString(36).substring(2,7);
   }
-  var tags = req.body.tags.split(" ");
-  if(tags[0] === "") tags = [urlName];
+  var tags = req.body.tags.toLowerCase().split(" ");
+  if(tags[0] === "") tags = [urlName.toLowerCase()];
 
   var page = new models.Page({"title": req.body.pageTitle, "content":req.body.content, "url_name": urlName, "tags": tags});
   page.save(function(err){
